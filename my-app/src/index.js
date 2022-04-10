@@ -1,17 +1,28 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 import './index.css';
-import App from './App';
-import reportWebVitals from './reportWebVitals';
 
-ReactDOM.render(
-  <React.StrictMode>
-    <App />
-  </React.StrictMode>,
-  document.getElementById('root')
-);
+const reactComponentForResourceType = {
+    'cba/components/content/comp1': require('./components/Comp1/Comp1').default,
+    'cba/components/content/comp2': require('./components/Comp2/Comp2').default
+};
 
-// If you want to start measuring performance in your app, pass a function
-// to log results (for example: reportWebVitals(console.log))
-// or send to an analytics endpoint. Learn more: https://bit.ly/CRA-vitals
-reportWebVitals();
+const isSSR = typeof window.document !== 'object';
+if (!isSSR) {
+    if (window.callbacks) {
+        window.callbacks.forEach((component) => {
+            const container = document.getElementById(component.uuid);
+            const props = JSON.parse(
+                document.getElementById(`${component.uuid}-props`).innerHTML
+            );
+            const element = React.createElement(
+                    reactComponentForResourceType[component.resourceType],
+                    props
+                );
+            ReactDOM.render(
+                element,
+                container
+            );
+        });
+    }
+}

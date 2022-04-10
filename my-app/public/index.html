@@ -28,7 +28,62 @@
   </head>
   <body>
     <noscript>You need to enable JavaScript to run this app.</noscript>
-    <div id="root"></div>
+    <div class="comp1">
+      <div id="1">
+      </div>
+      <script id="1-props" type="application/json">{"title":"Heading 2","resourceType":"cba/components/content/comp1"}</script>
+      <script>
+        if (window.callbacks === undefined) {
+          window.callbacks = [];
+        }
+        callbacks.push({
+          "uuid": "1",
+          "resourceType": "cba/components/content/comp1"
+        });
+      </script>
+    </div>
+    <div class="comp2">
+      <div id="2">
+      </div>
+      <script id="2-props" type="application/json">{"title":"Heading 1","resourceType":"cba/components/content/comp2"}</script>
+      <script>
+        if (window.callbacks === undefined) {
+          window.callbacks = [];
+        }
+        callbacks.push({
+          "uuid": "2",
+          "resourceType": "cba/components/content/comp2"
+        });
+      </script>
+    </div>
+    <div class="comp3">
+      <div id="3">
+      </div>
+      <script id="3-props" type="application/json">{"title":"Comp 3","resourceType":"cba/components/content/comp1"}</script>
+      <script>
+        if (window.callbacks === undefined) {
+          window.callbacks = [];
+        }
+        callbacks.push({
+          "uuid": "3",
+          "resourceType": "cba/components/content/comp1"
+        });
+      </script>
+    </div>
+    <div class="comp4">
+      <div id="4">
+      </div>
+      <script id="4-props" type="application/json">{"title":"Comp 4","resourceType":"cba/components/content/comp1"}</script>
+      <script>
+        if (window.callbacks === undefined) {
+          window.callbacks = [];
+        }
+        callbacks.push({
+          "uuid": "4",
+          "resourceType": "cba/components/content/comp1"
+        });
+      </script>
+    </div>
     <!--
       This HTML file is a template.
       If you open it directly in the browser, you will see an empty page.
