@@ -126,6 +126,12 @@
             <version>${project.version}</version>
             <type>zip</type>
         </dependency>
+        <dependency>
+            <groupId>com.mysite</groupId>
+            <artifactId>mysite.ui.frontendReact</artifactId>
+            <version>${project.version}</version>
+            <type>zip</type>
+        </dependency>
 
         <dependency>
             <groupId>com.mysite</groupId>
