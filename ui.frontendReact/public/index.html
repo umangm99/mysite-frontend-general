@@ -13,13 +13,13 @@
         <title>React Site</title>
 
         <!-- AEM page model -->
-        <meta
-            property="cq:pagemodel_root_url"
-            content="%REACT_APP_PAGE_MODEL_PATH%"
-        />
+<!--        <meta-->
+<!--            property="cq:pagemodel_root_url"-->
+<!--            content="%REACT_APP_PAGE_MODEL_PATH%"-->
+<!--        />-->
 
         <!-- AEM Base ClientLib -->
-        <link rel="stylesheet" href="/etc.clientlibs/reactsite/clientlibs/clientlib-base.css" type="text/css" />
+        <link rel="stylesheet" href="/etc.clientlibs/mysite/clientlibs/clientlib-base.css" type="text/css" />
 
         <!-- In development mode, redirect from "/" to app root -->
         <script>
@@ -31,5 +31,63 @@
     <body class="page basicpage">
         <noscript>You need to enable JavaScript to run this app.</noscript>
         <div id="spa-root"></div>
+
+
+        <div class="comp1">
+            <div id="1">
+            </div>
+            <script id="1-props" type="application/json">{"title":"Heading 2","resourceType":"cba/components/content/comp1"}</script>
+            <script>
+                if (window.callbacks === undefined) {
+                    window.callbacks = [];
+                }
+                callbacks.push({
+                    "uuid": "1",
+                    "resourceType": "cba/components/content/comp1"
+                });
+            </script>
+        </div>
+        <div class="comp2">
+            <div id="2">
+            </div>
+            <script id="2-props" type="application/json">{"title":"Heading 1","resourceType":"cba/components/content/comp2"}</script>
+            <script>
+                if (window.callbacks === undefined) {
+                    window.callbacks = [];
+                }
+                callbacks.push({
+                    "uuid": "2",
+                    "resourceType": "cba/components/content/comp2"
+                });
+            </script>
+        </div>
+        <div class="comp3">
+            <div id="3">
+            </div>
+            <script id="3-props" type="application/json">{"title":"Comp 3","resourceType":"cba/components/content/comp1"}</script>
+            <script>
+                if (window.callbacks === undefined) {
+                    window.callbacks = [];
+                }
+                callbacks.push({
+                    "uuid": "3",
+                    "resourceType": "cba/components/content/comp1"
+                });
+            </script>
+        </div>
+        <div class="comp4">
+            <div id="4">
+            </div>
+            <script id="4-props" type="application/json">{"title":"Comp 4","resourceType":"cba/components/content/comp1"}</script>
+            <script>
+                if (window.callbacks === undefined) {
+                    window.callbacks = [];
+                }
+                callbacks.push({
+                    "uuid": "4",
+                    "resourceType": "cba/components/content/comp1"
+                });
+            </script>
+        </div>
     </body>
 </html>

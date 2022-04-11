@@ -1,44 +1,37 @@
-import 'react-app-polyfill/stable';
-import 'react-app-polyfill/ie9';
-import 'custom-event-polyfill';
-
-import { Constants, ModelManager } from '@adobe/aem-spa-page-model-manager';
-import { createBrowserHistory } from 'history';
 import React from 'react';
-import { render } from 'react-dom';
-import { Router } from 'react-router-dom';
-import App from './App';
-import LocalDevModelClient from './LocalDevModelClient';
-import './components/import-components';
+import {render} from 'react-dom';
 import './index.css';
 
-const modelManagerOptions = {};
-if(process.env.REACT_APP_PROXY_ENABLED) {
-    modelManagerOptions.modelClient = new LocalDevModelClient(process.env.REACT_APP_API_HOST);
-}
-
-const renderApp = () => {
-    ModelManager.initialize(modelManagerOptions).then(pageModel => {
-        const history = createBrowserHistory();
-        render(
-            <Router history={history}>
-                <App
-                    history={history}
-                    cqChildren={pageModel[Constants.CHILDREN_PROP]}
-                    cqItems={pageModel[Constants.ITEMS_PROP]}
-                    cqItemsOrder={pageModel[Constants.ITEMS_ORDER_PROP]}
-                    cqPath={pageModel[Constants.PATH_PROP]}
-                    locationPathname={window.location.pathname}
-                />
-            </Router>,
-            document.getElementById('spa-root')
-        );
-    });
+const reactComponentForResourceType = {
+	'cba/components/content/comp1': require('./components/Comp1/Comp1').default,
+	'cba/components/content/comp2': require('./components/Comp2/Comp2').default
 };
 
+const renderApp = () => {
+
+	const isSSR = typeof window.document !== 'object';
+	if (!isSSR) {
+		if (window.callbacks) {
+			window.callbacks.forEach((component) => {
+				const container = document.getElementById(component.uuid);
+				const props = JSON.parse(
+					document.getElementById(`${component.uuid}-props`).innerHTML
+				);
+				const element = React.createElement(
+					reactComponentForResourceType[component.resourceType],
+					props
+				);
+				render(
+					element,
+					container
+				);
+			});
+		}
+	}
+};
 
 
 document.addEventListener('DOMContentLoaded', () => {
 
-    renderApp();
+	renderApp();
 });
