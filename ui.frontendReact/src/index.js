@@ -1,5 +1,5 @@
 import React from 'react';
-import {render} from 'react-dom';
+import ReactDOM from 'react-dom';
 import './index.css';
 
 const reactComponentForResourceType = {
@@ -7,31 +7,22 @@ const reactComponentForResourceType = {
 	'cba/components/content/comp2': require('./components/Comp2/Comp2').default
 };
 
-const renderApp = () => {
-
-	const isSSR = typeof window.document !== 'object';
-	if (!isSSR) {
-		if (window.callbacks) {
-			window.callbacks.forEach((component) => {
-				const container = document.getElementById(component.uuid);
-				const props = JSON.parse(
-					document.getElementById(`${component.uuid}-props`).innerHTML
-				);
-				const element = React.createElement(
-					reactComponentForResourceType[component.resourceType],
-					props
-				);
-				render(
-					element,
-					container
-				);
-			});
-		}
+const isSSR = typeof window.document !== 'object';
+if (!isSSR) {
+	if (window.callbacks) {
+		window.callbacks.forEach((component) => {
+			const container = document.getElementById(component.uuid);
+			const props = JSON.parse(
+				document.getElementById(`${component.uuid}-props`).innerHTML
+			);
+			const element = React.createElement(
+				reactComponentForResourceType[component.resourceType],
+				props
+			);
+			ReactDOM.render(
+				element,
+				container
+			);
+		});
 	}
-};
-
-
-document.addEventListener('DOMContentLoaded', () => {
-
-	renderApp();
-});
+}

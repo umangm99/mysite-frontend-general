@@ -4,12 +4,8 @@ import PropTypes from 'prop-types';
 const Comp2 = ({ title, description }) => {
   return (
     <div>
-      <div>
-        <div>
-          <h1>{title}</h1>
-          <p>{description}</p>
-        </div>
-      </div>
+      <h1>{title}</h1>
+      <p>{description}</p>
     </div>
   );
 };
