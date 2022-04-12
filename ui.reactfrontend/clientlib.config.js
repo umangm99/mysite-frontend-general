@@ -27,7 +27,7 @@ const CLIENTLIB_DIR = path.join(
   'content',
   'jcr_root',
   'apps',
-  'reactsite',
+  'mysite',
   'clientlibs'
 );
 const ASSET_MANIFEST_PATH = path.join(BUILD_DIR, 'asset-manifest.json');
@@ -39,9 +39,9 @@ module.exports = {
   context: BUILD_DIR,
   clientLibRoot: CLIENTLIB_DIR,
   libs: {
-    name: 'clientlib-react',
+    name: 'clientlib-reactsite',
     allowProxy: true,
-    categories: ['reactsite.react'],
+    categories: ['mysite.reactsite'],
     serializationFormat: 'xml',
     cssProcessor: ['default:none', 'min:none'],
     jsProcessor: ['default:none', 'min:none'],
