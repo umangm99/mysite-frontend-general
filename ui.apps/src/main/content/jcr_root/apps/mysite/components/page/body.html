@@ -1,0 +1,6 @@
+<noscript>You need to enable JavaScript to run this app.</noscript>
+<div id="spa-root"></div>
+<sly data-sly-use.templatedContainer="com.day.cq.wcm.foundation.TemplatedContainer"
+	 data-sly-repeat.child="${templatedContainer.structureResources}"
+	 data-sly-resource="${child.path @ resourceType=child.resourceType, decorationTagName='div'}">
+</sly>

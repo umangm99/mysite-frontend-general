@@ -30,5 +30,5 @@ const ContainerConfig = {
 };
 
 
-MapTo('reactsite/components/container')(withComponentMappingContext(AllowedComponentsContainer), ContainerConfig);
+MapTo('mysite/components/container')(withComponentMappingContext(AllowedComponentsContainer), ContainerConfig);
 

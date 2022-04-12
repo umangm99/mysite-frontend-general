@@ -28,5 +28,5 @@ const ExperienceFragmentVariationConfig = {
     }
 };
 
-MapTo('reactsite/components/experiencefragment')(withComponentMappingContext(Container), ExperienceFragmentVariationConfig);
+MapTo('mysite/components/experiencefragment')(withComponentMappingContext(Container), ExperienceFragmentVariationConfig);
 

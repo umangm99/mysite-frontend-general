@@ -59,25 +59,25 @@ const TitleV2 = withAsyncImport(() => import(`@adobe/aem-core-components-react-b
 const CarouselV1 = withAsyncImport(() => import(`@adobe/aem-core-components-react-spa/dist/container/carousel/v1/CarouselV1`));
 
 
-MapTo('reactsite/components/download')(DownloadV1, {isEmpty: DownloadV1IsEmptyFn});
-MapTo('reactsite/components/list')(ListV2, {isEmpty: ListV2IsEmptyFn});
-MapTo('reactsite/components/separator')(SeparatorV1, {isEmpty: SeparatorV1IsEmptyFn});
+MapTo('mysite/components/download')(DownloadV1, {isEmpty: DownloadV1IsEmptyFn});
+MapTo('mysite/components/list')(ListV2, {isEmpty: ListV2IsEmptyFn});
+MapTo('mysite/components/separator')(SeparatorV1, {isEmpty: SeparatorV1IsEmptyFn});
 
-MapTo('reactsite/components/button')(ButtonV1, {isEmpty: ButtonV1IsEmptyFn});
-MapTo('reactsite/components/teaser')(TeaserV1, {isEmpty: TeaserV1IsEmptyFn});
-//MapTo('reactsite/components/image')(ImageV2, {isEmpty: ImageV2IsEmptyFn});
-MapTo('reactsite/components/title')(TitleV2, {isEmpty: TitleV2IsEmptyFn});
-
-
-MapTo('reactsite/components/breadcrumb')(BreadCrumbV2, {isEmpty: BreadCrumbV2IsEmptyFn});
-MapTo('reactsite/components/navigation')(NavigationV1);
-MapTo('reactsite/components/languagenavigation')(LanguageNavigationV1);
+MapTo('mysite/components/button')(ButtonV1, {isEmpty: ButtonV1IsEmptyFn});
+MapTo('mysite/components/teaser')(TeaserV1, {isEmpty: TeaserV1IsEmptyFn});
+MapTo('mysite/components/image')(ImageV2, {isEmpty: ImageV2IsEmptyFn});
+MapTo('mysite/components/title')(TitleV2, {isEmpty: TitleV2IsEmptyFn});
 
 
-MapTo('reactsite/components/tabs')(TabsV1, {isEmpty: TabsV1IsEmptyFn});
-MapTo('reactsite/components/accordion')(AccordionV1, {isEmpty: AccordionV1IsEmptyFn});
-MapTo('reactsite/components/carousel')(CarouselV1, {isEmpty: CarouselV1IsEmptyFn});
-MapTo('reactsite/components/container')(ContainerV1, {isEmpty: ContainerV1IsEmptyFn});
+MapTo('mysite/components/breadcrumb')(BreadCrumbV2, {isEmpty: BreadCrumbV2IsEmptyFn});
+MapTo('mysite/components/navigation')(NavigationV1);
+MapTo('mysite/components/languagenavigation')(LanguageNavigationV1);
+
+
+MapTo('mysite/components/tabs')(TabsV1, {isEmpty: TabsV1IsEmptyFn});
+MapTo('mysite/components/accordion')(AccordionV1, {isEmpty: AccordionV1IsEmptyFn});
+MapTo('mysite/components/carousel')(CarouselV1, {isEmpty: CarouselV1IsEmptyFn});
+MapTo('mysite/components/container')(ContainerV1, {isEmpty: ContainerV1IsEmptyFn});
 
 
 //lazy load of internal component (hello world)
@@ -95,18 +95,7 @@ const TextEditConfig = {
     }
 };
 
-MapTo('reactsite/components/text')(LazyTextComponent, TextEditConfig);
-
-export const ImageEditConfig = {
-
-    emptyLabel: 'Image',
-
-    isEmpty: function(props) {
-        return !props || !props.src || props.src.trim().length < 1;
-    }
-};
-
-MapTo('reactsite/components/image')(Image, ImageEditConfig);
+MapTo('mysite/components/text')(LazyTextComponent, TextEditConfig);
 
 export const HelloWorldEditConfig = {
 
@@ -117,4 +106,4 @@ export const HelloWorldEditConfig = {
     }
 };
 
-MapTo('reactsite/components/helloworld')(HelloWorld, HelloWorldEditConfig);
+MapTo('mysite/components/helloworld')(HelloWorld, HelloWorldEditConfig);

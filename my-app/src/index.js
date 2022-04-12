@@ -7,22 +7,20 @@ const reactComponentForResourceType = {
     'cba/components/content/comp2': require('./components/Comp2/Comp2').default
 };
 
-const isSSR = typeof window.document !== 'object';
-if (!isSSR) {
-    if (window.callbacks) {
-        window.callbacks.forEach((component) => {
-            const container = document.getElementById(component.uuid);
-            const props = JSON.parse(
-                document.getElementById(`${component.uuid}-props`).innerHTML
-            );
-            const element = React.createElement(
-                reactComponentForResourceType[component.resourceType],
-                props
-            );
-            ReactDOM.render(
-                element,
-                container
-            );
-        });
-    }
+
+if (typeof window.document == 'object'&& window.callbacks) {
+    window.callbacks.forEach((component) => {
+        const container = document.getElementById(component.uuid);
+        const props = JSON.parse(
+            document.getElementById(`${component.uuid}-props`).innerHTML
+        );
+        const element = React.createElement(
+            reactComponentForResourceType[component.resourceType],
+            props
+        );
+        ReactDOM.render(
+            element,
+            container
+        );
+    });
 }

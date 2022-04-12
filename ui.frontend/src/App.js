@@ -1,18 +1,14 @@
-import { Page, withModel } from '@adobe/aem-react-editable-components';
 import React from 'react';
-import Header from './components/Header/Header';
 
 // This component is the application entry point
-class App extends Page {
+class App extends React.Component{
   render() {
     return (
       <div>
-        <Header />
-        {this.childComponents}
-        {this.childPages}
+        React Test Component
       </div>
     );
   }
 }
 
-export default withModel(App);
+export default App;

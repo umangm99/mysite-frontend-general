@@ -19,7 +19,7 @@
         />
 
         <!-- AEM Base ClientLib -->
-        <link rel="stylesheet" href="/etc.clientlibs/reactsite/clientlibs/clientlib-base.css" type="text/css" />
+        <link rel="stylesheet" href="/etc.clientlibs/mysite/clientlibs/clientlib-base.css" type="text/css" />
 
         <!-- In development mode, redirect from "/" to app root -->
         <script>
@@ -31,5 +31,35 @@
     <body class="page basicpage">
         <noscript>You need to enable JavaScript to run this app.</noscript>
         <div id="spa-root"></div>
+        <div class="aem-area">
+            <div class="comp1">
+                <div id="1a">
+                </div>
+                <script id="1a-props" type="application/json">{"title":"Heading 1","resourceType":"cba/components/content/comp1"}</script>
+                <script>
+                    if (window.callbacks === undefined) {
+                        window.callbacks = [];
+                    }
+                    callbacks.push({
+                        "uuid": "1a",
+                        "resourceType": "cba/components/content/comp1"
+                    });
+                </script>
+            </div>
+            <div class="comp2">
+                <div id="2a">
+                </div>
+                <script id="2a-props" type="application/json">{"title":"Heading 2","resourceType":"cba/components/content/comp2"}</script>
+                <script>
+                    if (window.callbacks === undefined) {
+                        window.callbacks = [];
+                    }
+                    callbacks.push({
+                        "uuid": "2a",
+                        "resourceType": "cba/components/content/comp2"
+                    });
+                </script>
+            </div>
+        </div>
     </body>
 </html>
