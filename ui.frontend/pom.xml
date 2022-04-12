@@ -30,7 +30,7 @@
     <!-- ====================================================================== -->
     <!-- P R O J E C T  D E S C R I P T I O N                                   -->
     <!-- ====================================================================== -->
-    <artifactId>mysite.ui.reactfrontend</artifactId>
+    <artifactId>mysite.ui.frontend</artifactId>
     <packaging>pom</packaging>
     <name>My Site - UI React Frontend</name>
 

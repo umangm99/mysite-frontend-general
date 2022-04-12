@@ -39,9 +39,9 @@ module.exports = {
   context: BUILD_DIR,
   clientLibRoot: CLIENTLIB_DIR,
   libs: {
-    name: 'clientlib-reactsite',
+    name: 'clientlib-react',
     allowProxy: true,
-    categories: ['mysite.reactsite'],
+    categories: ['mysite.react'],
     serializationFormat: 'xml',
     cssProcessor: ['default:none', 'min:none'],
     jsProcessor: ['default:none', 'min:none'],
