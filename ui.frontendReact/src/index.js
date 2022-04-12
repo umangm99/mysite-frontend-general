@@ -1,15 +1,19 @@
 import React from 'react';
-import ReactDOM from 'react-dom';
+import {render} from 'react-dom';
 import './index.css';
+
+import 'react-app-polyfill/stable';
+import 'react-app-polyfill/ie9';
+import 'custom-event-polyfill';
 
 const reactComponentForResourceType = {
 	'mysite/components/content/headingdescription': require('./components/HeadingDescription/HeadingDescription').default,
 	'cba/components/content/comp2': require('./components/Comp2/Comp2').default
 };
 
-const isSSR = typeof window.document !== 'object';
-if (!isSSR) {
-	if (window.callbacks) {
+
+const renderApp = () => {
+	if (typeof window.document == 'object' && window.callbacks) {
 		window.callbacks.forEach((component) => {
 			const container = document.getElementById(component.uuid);
 			const props = JSON.parse(
@@ -19,10 +23,14 @@ if (!isSSR) {
 				reactComponentForResourceType[component.resourceType],
 				props
 			);
-			ReactDOM.render(
+			render(
 				element,
 				container
 			);
 		});
 	}
-}
+};
+
+document.addEventListener('DOMContentLoaded', () => {
+	renderApp();
+});
