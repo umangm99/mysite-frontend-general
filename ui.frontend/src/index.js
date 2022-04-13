@@ -7,28 +7,22 @@ import {render} from 'react-dom';
 import App from './App';
 import './index.css';
 
-const MapTo = {
-	'cba/components/content/comp1': require('./components/Comp1/Comp1').default,
-	'cba/components/content/comp2': require('./components/Comp2/Comp2').default
-};
+import Comp1 from "./components/Comp1/Comp1";
 
 const renderApp = () => {
-	// if (typeof window.document == 'object' && window.callbacks) {
-	// 	window.callbacks.forEach((component) => {
-	// 		const container = document.getElementById(component.uuid);
-	// 		const props = JSON.parse(
-	// 			document.getElementById(`${component.uuid}-props`).innerHTML
-	// 		);
-	// 		const element = React.createElement(
-	// 			MapTo[component.resourceType],
-	// 			props
-	// 		);
-	// 		render(
-	// 			element,
-	// 			container
-	// 		);
-	// 	});
-	// }
+	if (typeof window.document == 'object' && window.callbacks) {
+		window.callbacks.forEach((component) => {
+			const container = document.getElementById(component.uuid);
+			const props = JSON.parse(
+				document.getElementById(`${component.uuid}-props`).innerHTML
+			);
+			const element = React.createElement(Comp1, props)
+			render(
+				element,
+				container
+			);
+		});
+	}
 	render(
 		<div>
 			<App/>
